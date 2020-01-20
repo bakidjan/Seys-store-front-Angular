@@ -12,6 +12,7 @@ import { ProductNewComponent } from './product/product-new/product-new.component
 import { LoginComponent } from './authentication/login/login.component';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { CategoryNewComponent } from './product/category-new/category-new.component';
+import { ProductUpdateComponent } from './product/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CategoryNewComponent } from './product/category-new/category-new.compon
     LoginComponent,
     LogoutComponent,
     CategoryNewComponent,
+    ProductUpdateComponent,
   ],
   imports: [
     BrowserModule,

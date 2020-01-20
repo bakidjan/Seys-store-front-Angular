@@ -15,7 +15,7 @@
       <div class="card border border-0" *ngFor="let p of currentProduct._embedded.products">
         <div class="zoom">
           <img [src]="catService.host+'/photoProduct/'+p.id+'?ts='+getTS()" width="100%"
-               class=" img-thumbnail rounded" (click)="onGetProductDetail(p)">
+               class=" img-thumbnail rounded clickable" (click)="onGetProductDetail(p)">
         </div>
         <p></p>
         <div>
