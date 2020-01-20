@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,8 @@ export class RegistrationComponent implements OnInit {
   private existingUsernameMessage: string;
   mode: number= 0;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,7 @@ export class RegistrationComponent implements OnInit {
     this.authService.signUp(this.authService.host+'/addUser', value)
       .subscribe(data=>{
         console.log(data)
+        this.router.navigateByUrl('login')
       }, error => {
         this.existingEmailMessage = value.email;
         this.existingUsernameMessage = value.username;

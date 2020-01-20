@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
   onLogin(value) {
     this.userUnregistered = value;
     this.login(value.username, value.password);
+    sessionStorage.setItem(value.username, value.password);
+    localStorage.setItem(value.username, value.password)
     if(this.isAuthenticated){
       this.router.navigateByUrl('products');
     }
