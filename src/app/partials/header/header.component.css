@@ -1,0 +1,7 @@
+.clickable:hover{
+  cursor: pointer;
+  -webkit-transition: .1s ease-in-out;
+  transition: .2s ease-in-out;
+  transform: scale(1.3);
+}
+

@@ -1,0 +1,78 @@
+<div class="card-body rounded border border-info">
+  <form #f="ngForm" (ngSubmit)="onAddProduct(f.value)">
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Nom</label>
+      <div class="col-sm-10">
+        <input name="name" class="form-control" type="text" [ngModel]>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" type="text" name="description" id="description" [ngModel]></textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="currentPrice" class="col-sm-2 col-form-label">Prix actuel</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="number" name="currentPrice" id="currentPrice" [ngModel]>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="price" class="col-sm-2 col-form-label">Prix de base</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="number" name="price" id="price" [ngModel]>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="photoName" class="col-sm-2 col-form-label">PhotoName</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" name="photoName" id="photoName" [ngModel]>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">category</label>
+      <div class="col-sm-10">
+        <input name="category" class="form-control" type="number" min="1" [(ngModel)]="cateId">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-2">Choice</div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="promotion" id="promotion" [ngModel]>
+          <label class="form-check-label" for="promotion">
+            Promotion
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="available" id="available" [ngModel]>
+          <label class="form-check-label" for="available">
+            Available
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="newCollection" id="newCollection" [ngModel]>
+          <label class="form-check-label" for="newCollection">
+            NewCollection
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5 ">
+          <button type="submit" class="btn btn-success ">Add</button>
+          <button type="reset" class="btn btn-danger  float-right">reset</button>
+      </div>
+    </div>
+  </form>
+</div>
+<p></p>

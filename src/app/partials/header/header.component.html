@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-sm-12 mt-2">
+      SwageStore
+    </div>
+    <div class=" col-md-6 col-sm-12 mt-2 text-center">
+      <ul class=" list-inline" >
+        <li class="list-inline-item">
+          <a routerLink="products" class="mr-2">Home</a>
+          <a routerLink=""  class="mr-2">Collection</a>
+          <a routerLink=""  >Promo</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="col-md-3 col-sm-12 mt-2">
+      <ul class="list-inline float-right">
+        <li class="list-inline-item fa fa-plus clickable" style="color: deepskyblue"
+        [routerLink]="['new-product']"></li>
+        <li class="list-inline-item fa fa-search clickable" style="color: black"></li>
+        <li class="list-inline-item fa fa-cart-plus clickable" style="color: deepskyblue"></li>
+        <li class="list-inline-item fa fa-heart-o clickable" style="color: orangered"></li>
+        <li class="list-inline-item fa fa-sign-out clickable" style="color: black"
+        [routerLink]="['logout']"></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<P></P>
+<div *ngIf="mode==0" class="card col-md-6 col-sm-12 border border-info rounded">
+  <div class="card-body ">
+    <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+      <p><span *ngIf="messageError" style="color: red"> erreur de connexion avec "{{messageError}}",
+      veuillez verifier les identifants ! </span></p>
+      <div class="form-group">
+        <label >Username</label>
+        <input type="text" class="form-control border border-info" name="username" ngModel>
+      </div>
+      <div class="form-group">
+        <label >Password</label>
+        <input type="text" class="form-control border border-info" name="password" ngModel>
+      </div>
+      <div>
+        <button class="btn btn-sm btn-info" type="submit">Login</button>
+        <button type="button" class="btn btn-sm btn-success ml-4" (click)="onUserRegistration()">Sign up user</button>
+        <button type="button" class="btn btn-sm btn-success ml-4" (click)="onAdminRegistration()">Sign up admin</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="mode==1" class="card col-md-6 col-sm-12 border border-info rounded">
+  <div class="card-body ">
+    <form #f="ngForm" (ngSubmit)="userRegistration(f.value)">
+      <div class="form-group">
+        <label >Email</label>
+        <input type="email" class="form-control border border-info" name="email" required ngModel>
+        <span *ngIf="existingEmailMessage" style="color: red">{{existingEmailMessage}} est deja utilsé</span>
+      </div>
+      <div class="form-group">
+        <label >User</label>
+        <input type="text" class="form-control border border-info" name="username" ngModel>
+      </div>
+      <div class="form-group">
+        <label >Pass</label>
+        <input type="text" class="form-control border border-info" name="password" ngModel>
+      </div>
+      <button class="btn btn-sm btn-info" type="submit">Connect</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="mode==2" class="card col-md-6 col-sm-12 border border-info rounded">
+  <div class="card-body ">
+    <form #f="ngForm" (ngSubmit)="adminRegistration(f.value)">
+      <div class="form-group">
+        <label >Email</label>
+        <input type="email" class="form-control border border-info" name="email" ngModel>
+        <span *ngIf="existingEmailMessage" style="color: red">{{existingEmailMessage}} est deja utilsé</span>
+      </div>
+      <div class="form-group">
+        <label >User</label>
+        <input type="text" class="form-control border border-info" name="username" ngModel>
+      </div>
+      <div class="form-group">
+        <label >Pass</label>
+        <input type="text" class="form-control border border-info" name="password" ngModel>
+      </div>
+      <button class="btn btn-sm btn-info" type="submit">SignUp</button>
+    </form>
+  </div>
+</div>
