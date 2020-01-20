@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {AuthenticationService} from '../../services/authentication/authentication.service';
 import {Router} from '@angular/router';
 
@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   private messageError: string;
   private userUnregistered: any;
   private existingEmailMessage: any;
-  private existingUsernameMessage: any;
 
   constructor(private authService: AuthenticationService,
               private router : Router) { }
@@ -53,20 +52,11 @@ export class LoginComponent implements OnInit {
   }
 
   onUserRegistration() {
-    this.mode=1;
-  }
-
-  userRegistration(value: any) {
-    this.authService.signUp(this.authService.host+'/addUser', value)
-      .subscribe(data=>{
-      }, error => {
-        this.existingEmailMessage = value.email;
-        this.existingUsernameMessage = value.username;
-      })
+    this.router.navigateByUrl('registration')
   }
 
   onAdminRegistration() {
-    this.mode = 2;
+    this.mode = 1;
   }
 
   adminRegistration(value: any) {

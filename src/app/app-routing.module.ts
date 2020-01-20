@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ProductsListComponent} from './product/products-list/products-list.component';
-import {AppComponent} from './app.component';
 import {ProductDetailComponent} from './product/product-detail/product-detail.component';
 import {ProductNewComponent} from './product/product-new/product-new.component';
 import {LoginComponent} from './authentication/login/login.component';
 import {CategoryNewComponent} from './product/category-new/category-new.component';
+import {RegistrationComponent} from './authentication/registration/registration.component';
 
 
 const routes: Routes = [
@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'login',component: LoginComponent},
   {path: 'logout', redirectTo: '/login', pathMatch: 'full'},
   {path: 'new-category', component: CategoryNewComponent},
+  {path: 'registration', component: RegistrationComponent},
   {path: '', redirectTo: 'products', pathMatch: 'full'},
 
 ];
