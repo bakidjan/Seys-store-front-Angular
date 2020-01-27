@@ -8,8 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  private existingEmailMessage: String;
-  private existingUsernameMessage: string;
+  private existingUsernameMessage: string = "";
   mode: number= 0;
 
   constructor(private authService: AuthenticationService,
@@ -24,8 +23,8 @@ export class RegistrationComponent implements OnInit {
         console.log(data)
         this.router.navigateByUrl('login')
       }, error => {
-        this.existingEmailMessage = value.email;
-        this.existingUsernameMessage = value.username;
+        console.log(error.error.message)
+        this.existingUsernameMessage = error.error.message;
       })
   }
 }
