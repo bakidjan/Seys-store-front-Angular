@@ -20,11 +20,11 @@ export class RegistrationComponent implements OnInit {
   userRegistration(value: any) {
     this.authService.signUp(this.authService.host+'/addUser', value)
       .subscribe(data=>{
-        console.log(data)
+        console.log(data);
         this.router.navigateByUrl('login')
       }, error => {
         console.log(error.error.message)
-        this.existingUsernameMessage = error.error.message;
+        this.existingUsernameMessage = "l'emil est deja utilisé par un autre user";
       })
   }
 }

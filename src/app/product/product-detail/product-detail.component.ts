@@ -58,7 +58,7 @@ getProductDetail(id){
   }
 
   onAddNewProduct() {
-    this.router.navigateByUrl('new-product')
+    this.router.navigateByUrl('new-product');
   }
 
 }
