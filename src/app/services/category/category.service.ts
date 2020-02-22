@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class CategoryService {
-  public host: string = 'http://localhost:8080';
+  public host: string = 'http://localhost:8081';
 
   constructor(private httpClient: HttpClient) {
   }

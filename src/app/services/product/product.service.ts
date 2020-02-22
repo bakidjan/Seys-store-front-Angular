@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  public host: String = 'http://localhost:8080';
+  public host: String = 'http://localhost:8081';
 
   constructor(private httpClient: HttpClient) {
   }
