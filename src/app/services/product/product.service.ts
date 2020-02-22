@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {KeycloakSecurityService} from '../keycloak/keycloak-security.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,11 @@ import {Observable} from 'rxjs';
 export class ProductService {
   public host: String = 'http://localhost:8081';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private securityService: KeycloakSecurityService) {
   }
 
   getProducts() {
-    return this.httpClient.get(this.host + '/products');
+    return this.httpClient.get(this.host + '/products', {headers: new HttpHeaders({Authorization: "Bearer " +this.securityService.kc.token})});
   }
 
   getProductById(id) {

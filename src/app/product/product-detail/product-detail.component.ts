@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ProductService} from '../../services/product/product.service';
 import {CategoryService} from '../../services/category/category.service';
 import {AuthenticationService} from '../../services/authentication/authentication.service';
+import {KeycloakSecurityService} from '../../services/keycloak/keycloak-security.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,14 @@ import {AuthenticationService} from '../../services/authentication/authenticatio
 })
 export class ProductDetailComponent implements OnInit {
   private currentProduct: any;
-  @Output() mode: number = 0;
+   mode: number = 0;
 
   constructor(private activatedRoute: ActivatedRoute,
               private prodService : ProductService,
               private  catService: CategoryService,
               private authService: AuthenticationService,
-              private router: Router) { }
+              private router: Router,
+              private securityService: KeycloakSecurityService) { }
 
   ngOnInit() {
 
@@ -61,4 +63,7 @@ getProductDetail(id){
     this.router.navigateByUrl('new-product');
   }
 
+  isApManager() {
+    return this.securityService.kc.hasResourceRole("manager");
+  }
 }

@@ -18,7 +18,7 @@
                class=" img-thumbnail rounded clickable" (click)="onGetProductDetail(p)">
         </div>
         <p></p>
-        <div>
+        <div *ngIf="isAppManager()">
           <span class="fa fa-edit clickable" style="color: red" (click)="onEditPhoto(p)"></span>
           <span class="fa fa-trash clickable ml-2" style="color: black" (click)="onDeletePhoto(p)"></span>
           <span class="fa fa-plus clickable ml-2" style="color: darkblue" (click)="onAddNewProduct(p)"></span>

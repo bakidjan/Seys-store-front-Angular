@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ProductService} from '../../services/product/product.service';
 import {NgAnalyzedFile} from '@angular/compiler';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
+import {KeycloakSecurityService} from '../../services/keycloak/keycloak-security.service';
 
 @Component({
   selector: 'products-list',
@@ -24,7 +25,7 @@ export class ProductsListComponent implements OnInit {
 
   constructor(private catService: CategoryService,
               private router: Router,
-              private prodService: ProductService) {
+              private prodService: ProductService, private securityService: KeycloakSecurityService) {
   }
 
   ngOnInit(): void {
@@ -120,5 +121,9 @@ export class ProductsListComponent implements OnInit {
 
   onAddNewProduct(p: any) {
     this.router.navigateByUrl('new-product')
+  }
+
+  isAppManager() {
+    return this.securityService.kc.hasResourceRole("manager");
   }
 }

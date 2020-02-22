@@ -1,7 +1,7 @@
 <div *ngIf="currentProduct" class="col-sm-8 justify-content-center">
   <div *ngIf="mode==0" class="card">
     <div class="card-header clearfix"> {{currentProduct.name}}
-      <div>
+      <div *ngIf="isApManager()">
         <span class="fa fa-edit float-right clickable ml-2" style="color: orangered" (click)="onEditProduct()"></span>
         <span class="fa fa-plus float-right clickable" style="color: dodgerblue" (click)="onAddNewProduct()"></span>
       </div>
