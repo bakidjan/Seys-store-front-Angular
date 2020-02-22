@@ -8,16 +8,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  private existingUsernameMessage: string = "";
+  /*private existingUsernameMessage: string = "";
   mode: number= 0;
 
   constructor(private authService: AuthenticationService,
-              private router: Router) { }
+              private router: Router) { }*/
 
   ngOnInit() {
   }
 
-  userRegistration(value: any) {
+  /*userRegistration(value: any) {
     this.authService.signUp(this.authService.host+'/addUser', value)
       .subscribe(data=>{
         console.log(data);
@@ -26,5 +26,5 @@ export class RegistrationComponent implements OnInit {
         console.log(error.error.message)
         this.existingUsernameMessage = "l'emil est deja utilisé par un autre user";
       })
-  }
+  }*/
 }

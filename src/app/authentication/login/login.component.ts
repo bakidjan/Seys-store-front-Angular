@@ -8,25 +8,25 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private users: any;
+  /*private users: any;
   private isAuthenticated: boolean;
   private userAuthenticated: any;
   mode: number=0;
   private messageError: string;
   private userUnregistered: any;
   private existingEmailMessage: any;
-
+*/
   constructor(private authService: AuthenticationService,
               private router : Router) { }
 
   ngOnInit() {
-    this.authService.getUsers()
+    /*this.authService.getUsers()
       .subscribe(data=>{
         this.users = data;
-      })
+      })*/
   }
 
-  login(username: string, password: string) {
+/*  login(username: string, password: string) {
     let user;
     this.users._embedded.users.forEach(u => {
       if (u.username == username && u.password == password) {
@@ -68,5 +68,5 @@ export class LoginComponent implements OnInit {
       }, error => {
         this.existingEmailMessage = value.email;
       })
-  }
+  }*/
 }

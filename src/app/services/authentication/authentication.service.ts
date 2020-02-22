@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  host: string = 'http://localhost:8081';
+  /*host: string = 'http://localhost:8081';
 
 
   constructor(private httpClient: HttpClient) {
@@ -17,6 +17,6 @@ export class AuthenticationService {
 
   signUp(url, data){
     return this.httpClient.post(url, data)
-  }
+  }*/
 
 }

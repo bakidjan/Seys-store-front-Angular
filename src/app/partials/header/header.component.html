@@ -20,8 +20,25 @@
         <li class="list-inline-item fa fa-search clickable" style="color: black"></li>
         <li class="list-inline-item fa fa-cart-plus clickable" style="color: deepskyblue"></li>
         <li class="list-inline-item fa fa-heart-o clickable" style="color: orangered"></li>
-        <li class="list-inline-item fa fa-sign-out clickable" style="color: black"
-        [routerLink]="['logout']"></li>
+        <li class="nav-item dropdown" *ngIf="securityService.kc.authenticated">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="clickable" *ngIf="securityService.kc.authenticated">
+          {{securityService.kc.tokenParsed.name.substring(0,8)}}
+        </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="list-inline-item clickable"
+            (click)="onLogout()">logout<span class="fa fa-sign-out " style="color: darkred"></span></a>
+            <a class="list-inline-item clickable"
+               (click)="onChangPassword()">Change password<span class="fa fa-edit " style="color: orangered"></span></a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="list-inline-item clickable " *ngIf="!securityService.kc.authenticated" (click)="onLogin()">login<span class="fa fa-sign-in " style="color: dodgerblue"></span></li>
+
+
       </ul>
     </div>
   </div>

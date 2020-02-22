@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,11 @@ import { LoginComponent } from './authentication/login/login.component';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { CategoryNewComponent } from './product/category-new/category-new.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
+import {KeycloakSecurityService} from './services/keycloak/keycloak-security.service';
+
+export function kcFactory(kcSecurity: KeycloakSecurityService) {
+  return ()=> kcSecurity.init();
+}
 
 @NgModule({
   declarations: [
@@ -33,7 +38,9 @@ import { RegistrationComponent } from './authentication/registration/registratio
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: APP_INITIALIZER, deps:[KeycloakSecurityService], useFactory: kcFactory, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
