@@ -24,4 +24,8 @@ export class HeaderComponent implements OnInit {
   onChangPassword() {
     return this.securityService.kc.accountManagement();
   }
+
+  onRegister() {
+    return this.securityService.kc.createAccountUrl();
+  }
 }

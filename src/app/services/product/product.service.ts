@@ -11,9 +11,11 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient, private securityService: KeycloakSecurityService) {
   }
-
+  /*
+  {headers: new HttpHeaders({Authorization: "Bearer " +this.securityService.kc.token})}
+   */
   getProducts() {
-    return this.httpClient.get(this.host + '/products', {headers: new HttpHeaders({Authorization: "Bearer " +this.securityService.kc.token})});
+    return this.httpClient.get(this.host + '/products');
   }
 
   getProductById(id) {

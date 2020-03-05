@@ -7,17 +7,20 @@ import { ProductsListComponent } from './product/products-list/products-list.com
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { HeaderComponent } from './partials/header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ProductNewComponent } from './product/product-new/product-new.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { LogoutComponent } from './authentication/logout/logout.component';
 import { CategoryNewComponent } from './product/category-new/category-new.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
 import {KeycloakSecurityService} from './services/keycloak/keycloak-security.service';
+import {RequestInterceptorService} from './services/req-interceptor/request-interceptor.service';
 
 export function kcFactory(kcSecurity: KeycloakSecurityService) {
   return ()=> kcSecurity.init();
 }
+
+const securityService: KeycloakSecurityService = new KeycloakSecurityService();
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ export function kcFactory(kcSecurity: KeycloakSecurityService) {
     ReactiveFormsModule
   ],
   providers: [
-    {provide: APP_INITIALIZER, deps:[KeycloakSecurityService], useFactory: kcFactory, multi:true}
+    {provide: APP_INITIALIZER, deps:[KeycloakSecurityService], useFactory: kcFactory, multi:true},
+   // {provide: HTTP_INTERCEPTORS, useClass : RequestInterceptorService, multi:true}
   ],
   bootstrap: [AppComponent]
 })

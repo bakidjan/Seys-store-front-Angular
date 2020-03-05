@@ -37,6 +37,7 @@ export class ProductsListComponent implements OnInit {
     this.catService.getCategory()
       .subscribe(data => {
         this.categories = data;
+        console.log(this.categories)
       }, error => {
         console.log(error);
       });
